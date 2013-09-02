@@ -13,7 +13,8 @@ Relies on REDCap's bookmark feature to pass the project ID, record ID and the te
 ## Requirements
 
 * REDcap version 5.6+ (not tested on earlier versions)
-* REDCap Bookmarks and API enabled
+  * Bookmarks enabled
+  * API enabled
 * TinyButStrong 3.8.2 - included with plugin (licensed under LGPL)
 
 
