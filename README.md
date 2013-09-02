@@ -1,8 +1,8 @@
 REDCap_TBS
 ==========
 
-This REDCap plugin displays complex formatted reports for individual REDCap records using the Tiny But Strong (TBS) 
-PHP template engine. The template files use HTML/CSS for layout and formatting. REDCap variables 
+This REDCap plugin generates formatted reports for individual REDCap records. Using the Tiny But Strong (TBS) 
+PHP template engine, template files are written in HTML/CSS for layout and formatting. REDCap variables 
 are replaced with their values for the specified record. REDCap projects can have multiple templates.
 
 Relies on REDCap's bookmark feature to pass the project ID, record ID and the template file name to the plugin.
