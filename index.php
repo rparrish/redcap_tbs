@@ -8,22 +8,11 @@
  * 		specified record. Projects can have multiple templates. 
  * VERSION: 0.1
  * AUTHOR: Rollie Parrish <rollie.parrish@ampa.org>
- * PLUGIN HOME: http://github.com/
+ * PLUGIN HOME: https://github.com/rparrish/redcap_tbs
  */
 
 //// load the required classes and configuration options 
 require_once ('includes/common.php');
-
-//// what type of action is being called?
-
-/*
-no project_id - show help file
-project_id only - show record picker
-record - proce the template file
-*/
-
-
-
 
 
 //// load the config file for this project
@@ -39,18 +28,11 @@ exit();
 }
 
 
-
-if ($_GET['api'] == 1) { 
-
-//// Using REDCap API  
 require_once ("includes/REDCap_API.php");
 
-} else {
-
 //// Using REDCap::getData method */
-require_once ("includes/REDCap_method.php");
+//require_once ("includes/REDCap_method.php");
 
-}
 
 // Print it all out
 require_once APP_PATH_DOCROOT . 'ProjectGeneral/header.php';
