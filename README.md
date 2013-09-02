@@ -21,9 +21,9 @@ todo:
 
 
 ## Configuration
-1 Plugin
-2 Project Report
-3 Bookmark
+1. Plugin
+2. Project Report
+3. Bookmark
 
 ## Known Issues
 * The TinyButStrong library is capable of much more than this
