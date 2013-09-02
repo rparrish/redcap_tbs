@@ -5,7 +5,7 @@ require_once('RestCallRequest.php');
 
 # arrays to contain elements you want to filter results by
 # example: array('item1', 'item2', 'item3');
-$records = array($record);
+$records = array($_GET['record']);
 $events = array();
 $fields = array();
 $forms = array();
