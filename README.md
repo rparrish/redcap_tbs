@@ -1,7 +1,7 @@
 REDCap TBS
 ==========
 
-This REDCap plugin generates formatted reports for individual REDCap records. Using the Tiny But Strong (TBS) 
+This REDCap plugin generates formatted reports for individual REDCap records. Using the Tiny But Strong  
 PHP template engine, template files are written in HTML/CSS for layout and formatting. REDCap variables 
 are replaced with their values for the specified record. REDCap projects can have multiple templates.
 
@@ -29,7 +29,7 @@ todo:
 
 You are welcome to:  
 
-* submit suggestions and bug-reports at: https://github.com/rparrish/REDCap_TBS/issues
+* submit suggestions and bug-reports at: https://github.com/rparrish/redcap_tbs/issues
 * compose a friendly email to: rollie.parrish@ampa.org
 
 
