@@ -1,0 +1,73 @@
+
+<h3 style="color:#800000;">example worksheet</h3><style type="text/css">
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  align: center;
+}
+
+table.ReportTableWithBorder {
+  border-right: none;
+  border-left: none;
+  border-right: 1pt solid #000;
+  border-bottom: 1pt solid #000;
+  font-size: 17px;
+  font-size: 13px;
+  font-family: helvetica,arial,sans-serif;
+}
+
+.ReportTableWithBorder th,.ReportTableWithBorder td {
+  border-top: none;
+  border-left: none;
+  border-top: 1pt solid #000;
+  border-left: 1pt solid #000;
+  padding: 4px 5px;
+  font-weight: 400;
+}
+
+.DataA {
+  background-color: ##DDDDDD;
+}
+
+td.DataB {
+  background-color: ##FFFFFF;
+}
+</style>
+
+<table border="0" cellpadding="2" cellspacing="0" class=
+"ReportTableWithBorder">
+  <tr valign="top">
+    <th colspan="4" style=
+    "font-size:120%;font-weight:bold;text-align:center;background-color:#cccccc;">
+    TAVR Candidate #: [onshow.data.record_id]</th>
+  </tr>
+
+  <tr valign="bottom">
+    <th align="right" class="col1" style="background-color: #DDDDDD">Name</th>
+
+    <th class="col2" style="background-color: #DDDDDD">Status</th>
+
+    <th class="col3" style="background-color: #DDDDDD">Date of Surgery</th>
+
+    <th class="col4" style="background-color: #DDDDDD">Group</th>
+  </tr>
+
+  <tr valign="top">
+    <td align="right"> [onshow.data.first_name] [onshow.data.last_name]  </td>
+
+    <td>[onshow.data.status_after_screening]</td>
+
+    <td>[onshow.data.date_surgery_scheduled]</td>
+
+    <td>[onshow.data.group]</td>
+  </tr>
+
+
+<tr valign="top">
+<td align="right" colspan="2" class="DataA">[onshow.data.first_name] [onshow.data.last_name]</td>
+<td>[onshow.data.first_name]</td>
+<td>[onshow.data.group]</td>
+</tr>
+</table>
+
