@@ -16,10 +16,11 @@ require_once ('includes/common.php');
 
 //// what type of action is being called?
 
+/*
 no project_id - show help file
 project_id only - show record picker
 record - proce the template file
-
+*/
 
 
 
