@@ -17,7 +17,7 @@ $api_parameters = array('content' => 'record', 'type' => 'flat', 'format' => 'js
         'token' => $config['token'], 'rawOrLabel' => 'label');
 
 # create a new API request object
-$request = new RestCallRequest('https://ampa.org/redcap/api/', 'POST', $api_parameters);
+$request = new RestCallRequest(APP_PATH_WEBROOT_FULL.'api/', 'POST', $api_parameters);
 
 # initiate the API request
 $request->execute();
