@@ -29,7 +29,7 @@ todo:
 
 You are welcome to:  
 
-* submit suggestions and bug-reports at: 
+* submit suggestions and bug-reports at: https://github.com/rparrish/REDCap_TBS/issues
 * compose a friendly email to: rollie.parrish@ampa.org
 
 
