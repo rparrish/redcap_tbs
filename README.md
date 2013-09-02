@@ -1,4 +1,4 @@
-REDCap_TBS
+REDCap TBS
 ==========
 
 This REDCap plugin generates formatted reports for individual REDCap records. Using the Tiny But Strong (TBS) 
