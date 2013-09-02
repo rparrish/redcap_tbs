@@ -11,19 +11,19 @@ REDCap projects can have multiple reporting templates.
 * REDCap
   * version 5.6+ (not tested on earlier versions)
   * Bookmarks enabled
-  * API enabled with a TOKEN for each project
+  * API enabled 
+  # A valid TOKEN for each project
 * [TinyButStrong](http://tinybutstrong.com)  3.8.2 - file included with plugin (licensed under LGPL)
 * Familiarity with editing HTML/CSS files
 
 
 ### Installation
-Extract the plugin archive into the REDCap plugins folder (redcap/plugins/redcap_tbs/)
+Download the .zip archive and extract the redcap_tbs folder into the REDCap plugins folder (redcap/plugins/redcap_tbs/)
 
 ### Configuration
 Each project requires its own subfolder in `redcap_tbs/pid/##`, where `##` equals the REDCap project ID number. This folder must contain the HTML template files and a config.ini file with a valid REDCap token.
 
 1. Make a copy the `/pid/example/` folder and rename it with the number of the project ID.
-
 2. Update the new folder's `config.ini` file with a valid TOKEN for the project.
 
 #### Template Files
@@ -33,21 +33,13 @@ Template files must contain valid HTML/CSS. Variables can be inserted with this 
 `<P>Hello [onshow.data.name]</P> ` ==> `Hello Peter`  
 `<P>Record ID: [onshow.data.record_id]</P> ` ==> `Record ID: 1`
 
-
-
 #### Bookmark
-
-Add a new Project Book mark.  
+Add a new Project Bookmark.  
 
 * Link URL - `https://ampa.org/redcap/plugins/redcap_tbs/index.php?template=form.html`
 	* change the value after 'template='  to the desired template filename.
 * Check the boxes for "Append record ID" and "Append project ID".
 * Additional bookmarks can be added using different template filenames 
-
-
-
-### Known Issues
-* 
 
 
 
@@ -57,5 +49,5 @@ You are welcome to:
 * compose a friendly email to: rollie.parrish@ampa.org
 
 
-### Authors/Contributors
+#### Authors/Contributors
 * __Author__: Rollie Parrish (AMPA)
