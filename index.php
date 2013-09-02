@@ -62,7 +62,7 @@ include_once('includes/tbs_class.php');
 $TBS = new clsTinyButStrong;
 //$TBS->Plugin(TBS_INSTALL, OPENTBS_PLUGIN);
 
-$TBS->LoadTemplate(dirname(__FILE__) . '/pid/'.$project_id.'/'.$_GET['template'].'.'.$_GET['format']);
+$TBS->LoadTemplate(dirname(__FILE__) . '/pid/'.$project_id.'/'.$_GET['template']);
 $TBS->Show();
 
 ?>
