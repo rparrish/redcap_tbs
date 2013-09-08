@@ -38,9 +38,11 @@ Add a new Project Bookmark.
 
 * Link Type - Select Advanced Link. This verifies the identity of the user.
 * User Access - Selecting 'All users' will give access to any user that has access to this project. The 'Selected Users' option can be used to restrict the link to specific users. 
-* Link URL - `https://redcap.EXAMPLE.ORG/redcap/plugins/redcap_tbs/index.php?template=form.html`A
+* Link URL - `https://redcap.EXAMPLE.ORG/redcap/plugins/redcap_tbs/index.php?template=form.html`
 	* change 'EXAMPLE.ORG' to the domain name of the REDCap installation.
-	* change the value after 'template='  to the desired template filename.
+	* OPTIONS:
+		* change the value after 'template='  to the desired template filename.
+		* Disable the REDCap Project header by adding `&header=false`
 * Check the boxes for "Append record ID" and "Append project ID".
 * Additional bookmarks can be used for different template filenames 
 
