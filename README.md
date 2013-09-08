@@ -12,7 +12,7 @@ REDCap projects can have multiple reporting templates.
   * version 5.6+ (not tested on earlier versions)
   * Bookmarks enabled
   * API enabled 
-  # A valid TOKEN for each project
+  * A valid TOKEN for each project
 * [TinyButStrong](http://tinybutstrong.com)  3.8.2 - file included with plugin (licensed under LGPL)
 * Familiarity with editing HTML/CSS files
 
@@ -36,10 +36,13 @@ Template files must contain valid HTML/CSS. Variables can be inserted with this 
 #### Bookmark
 Add a new Project Bookmark.  
 
-* Link URL - `https://redcap.EXAMPLE.ORG/redcap/plugins/redcap_tbs/index.php?template=form.html`
+* Link Type - Select Advanced Link. This verifies the identity of the user.
+* User Access - Selecting 'All users' will give access to any user that has access to this project. The 'Selected Users' option can be used to restrict the link to specific users. 
+* Link URL - `https://redcap.EXAMPLE.ORG/redcap/plugins/redcap_tbs/index.php?template=form.html`A
+	* change 'EXAMPLE.ORG' to the domain name of the REDCap installation.
 	* change the value after 'template='  to the desired template filename.
 * Check the boxes for "Append record ID" and "Append project ID".
-* Additional bookmarks can be added using different template filenames 
+* Additional bookmarks can be used for different template filenames 
 
 
 

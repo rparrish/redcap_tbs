@@ -3,16 +3,24 @@
  * PLUGIN NAME: REDCap_TBS
  * DESCRIPTION: Uses the Tiny But Strong (TBS) PHP template engine to   
  *		display formatted reports for individual REDCap records. 
- * 		The templates use HTML to layout the report format/style. 
- * 		REDCap variables are replaced with their values for the 
- * 		specified record. Projects can have multiple templates. 
- * VERSION: 0.1
+ * VERSION: 0.2
  * AUTHOR: Rollie Parrish <rollie.parrish@ampa.org>
  * PLUGIN HOME: https://github.com/rparrish/redcap_tbs
  */
 
 //// load the required classes and configuration options 
 require_once ('includes/common.php');
+
+require_once APP_PATH_DOCROOT . 'ProjectGeneral/header.php';
+
+
+//// confirm authentication with REDCap API
+// The only way to get this page to load is via the 
+// Advanced Bookmark in REDCap
+
+if (!CheckAccess()) { echo "Access Denied. "; exit;}  // Needs to show the standard REDCap "access denied"
+
+
 
 //// load the config file for this project
 $config = parse_ini_file("pid/" . $project_id . "/config.ini");
@@ -32,10 +40,6 @@ require_once ("includes/REDCap_API.php");
 
 //// Using REDCap::getData method */
 //require_once ("includes/REDCap_method.php");
-
-
-// Print it all out
-require_once APP_PATH_DOCROOT . 'ProjectGeneral/header.php';
 
 
 include_once('includes/tbs_class.php');
