@@ -32,7 +32,9 @@ if (!isset($_GET['record'])) {
 
 // todo: include mechanism to chose record (same as the dynamic search pulldown)
 
-echo "Which record?";
+echo '<h3 style="color:#800000;">Please select a record</h3>';
+renderSearchUtility();
+
 exit();
 
 }

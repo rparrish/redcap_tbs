@@ -1,6 +1,13 @@
 <?php
 
 
+require_once  '../../redcap_v5.6.0/Config/init_project.php';
+
+
+//Required files
+require_once APP_PATH_DOCROOT . '/ProjectGeneral/form_renderer_functions.php';
+
+
 // Call the REDCap Connect file in the main "redcap" directory
 require_once "../../redcap_connect.php";
 
