@@ -11,8 +11,11 @@
 //// load the required classes and configuration options 
 require_once ('includes/common.php');
 
-require_once APP_PATH_DOCROOT . 'ProjectGeneral/header.php';
 
+//// check for 'header=false' flag
+if ($_GET['header'] != 'false') {
+require_once APP_PATH_DOCROOT . 'ProjectGeneral/header.php';
+}
 
 //// confirm authentication with REDCap API
 // The only way to get this page to load is via the 
