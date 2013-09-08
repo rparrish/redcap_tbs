@@ -30,9 +30,9 @@ Each project requires its own subfolder in `redcap_tbs/pid/##`, where `##` equal
 
 Template files must contain valid HTML/CSS. Variables can be inserted with this tag format `[onshow.data.foo]` where 'foo' is a REDCap Project field name. 
 
-`<P>Hello [onshow.data.name]</P> ` ==> `Hello Peter`  
-`<P>Date: [onshow.data.date; frm='m/d/yy']</P> ` ==> `Date:  9/1/13` - Reformat date value.
-`<IMG SRC="./pid/16/[onshow.data.cardiology]-small.png" ==> An image name can be based on the value of a REDCap field. 
+* Basic usage - `<P>Hello [onshow.data.name]</P> ` ==> `Hello Peter`  
+* Reformatting dates - `<P>Date: [onshow.data.date; frm='m/d/yy']</P> ` ==> `Date:  9/1/13`  
+* Dynamic images - ``<IMG SRC="./pid/16/[onshow.data.cardiology]-small.png?raw"</IMG>'`` ==> An image name can be based on the value of a REDCap field. The image files can be located in the same `pid/sub-folder` as the template or from another location. 
 
 Additional information can be found on the [http://tinybutstrong.com/examples.php](TinyButStrong Examples) page and in the TinyButStrong [http://tinybutstrong.com/manual.php](Documentaion Manual).
 
