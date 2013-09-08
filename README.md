@@ -26,14 +26,18 @@ Each project requires its own subfolder in `redcap_tbs/pid/##`, where `##` equal
 1. Make a copy the `/pid/example/` folder and rename it with the number of the project ID.
 2. Update the new folder's `config.ini` file with a valid TOKEN for the project.
 
-#### Template Files
+#### 1. Template Filess
 
 Template files must contain valid HTML/CSS. Variables can be inserted with this tag format `[onshow.data.foo]` where 'foo' is a REDCap Project field name. 
 
 `<P>Hello [onshow.data.name]</P> ` ==> `Hello Peter`  
-`<P>Record ID: [onshow.data.record_id]</P> ` ==> `Record ID: 1`
+`<P>Date: [onshow.data.date; frm='m/d/yy']</P> ` ==> `Date:  9/1/13` - Reformat date value.
+`<IMG SRC="./pid/16/[onshow.data.cardiology]-small.png" ==> An image name can be based on the value of a REDCap field. 
 
-#### Bookmark
+Additional information can be found on the [http://tinybutstrong.com/examples.php](TinyButStrong Examples) page and in the TinyButStrong [http://tinybutstrong.com/manual.php](Documentaion Manual).
+
+
+#### 2. Bookmarks
 Add a new Project Bookmark.  
 
 * Link Type - Select Advanced Link. This verifies the identity of the user.
