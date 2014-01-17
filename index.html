@@ -28,37 +28,98 @@
         </ul>
       </header>
       <section>
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+        <h1>
+<a name="redcap-tbs" class="anchor" href="#redcap-tbs"><span class="octicon octicon-link"></span></a>REDCap TBS</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>This REDCap plugin generates formatted reports for individual REDCap records using the Tiny But Strong PHP template engine. Template files are written in HTML/CSS for layout and formatting. </p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<p><strong>How it works:</strong> The template file includes placeholder tags for REDCap field names. The TBS template engine replaces these tags with the actual values from REDCap for the specific record.</p>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<p>REDCap projects can have multiple reporting templates.</p>
 
 <h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<ul>
+<li>REDCap
+
+<ul>
+<li>version 5.6+ (not tested on earlier versions)</li>
+<li>Bookmarks enabled</li>
+<li>API enabled </li>
+<li>A valid TOKEN for each project</li>
+</ul>
+</li>
+<li>
+<a href="http://tinybutstrong.com">TinyButStrong</a>  3.8.2 - file included with plugin (licensed under LGPL)</li>
+<li>Familiarity with editing HTML/CSS files</li>
+</ul><h3>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h3>
+
+<p>Download the .zip archive and extract the redcap_tbs folder into the REDCap plugins folder (redcap/plugins/redcap_tbs/)</p>
 
 <h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Configuration</h3>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p>Each project requires its own subfolder in <code>redcap_tbs/pid/##</code>, where <code>##</code> equals the REDCap project ID number. This folder must contain the HTML template files and a config.ini file with a valid REDCap token.</p>
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<ol>
+<li>Make a copy the <code>/pid/example/</code> folder and rename it with the number of the project ID.</li>
+<li>Update the new folder's <code>config.ini</code> file with a valid TOKEN for the project.</li>
+</ol><h4>
+<a name="1-template-filess" class="anchor" href="#1-template-filess"><span class="octicon octicon-link"></span></a>1. Template Filess</h4>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p>Template files must contain valid HTML/CSS. Variables can be inserted with this tag format <code>[onshow.data.foo]</code> where 'foo' is a REDCap Project field name. </p>
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<ul>
+<li>Basic usage - <code>&lt;P&gt;Hello [onshow.data.name]&lt;/P&gt;</code> ==&gt; <code>Hello Peter</code><br>
+</li>
+<li>Reformatting dates - <code>&lt;P&gt;Date: [onshow.data.date; frm='m/d/yy']&lt;/P&gt;</code> ==&gt; <code>Date:  9/1/13</code><br>
+</li>
+<li>Dynamic images - <code>&lt;IMG SRC="./pid/16/[onshow.data.cardiology]-small.png?raw"&lt;/IMG&gt;'</code> ==&gt; An image name can be based on the value of a REDCap field. The image files can be located in the same <code>pid/sub-folder</code> as the template or from another location. </li>
+</ul><p>Additional information can be found on the <a href="TinyButStrong%20Examples">http://tinybutstrong.com/examples.php</a> page and in the TinyButStrong <a href="Documentaion%20Manual">http://tinybutstrong.com/manual.php</a>.</p>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<h4>
+<a name="2-bookmarks" class="anchor" href="#2-bookmarks"><span class="octicon octicon-link"></span></a>2. Bookmarks</h4>
+
+<p>Add a new Project Bookmark.  </p>
+
+<ul>
+<li>Link Type - Select Advanced Link. This verifies the identity of the user.</li>
+<li>User Access - Selecting 'All users' will give access to any user that has access to this project. The 'Selected Users' option can be used to restrict the link to specific users. </li>
+<li>Link URL - <code>https://redcap.EXAMPLE.ORG/redcap/plugins/redcap_tbs/index.php?template=form.html</code>
+
+<ul>
+<li>change 'EXAMPLE.ORG' to the domain name of the REDCap installation.</li>
+<li>OPTIONS:
+
+<ul>
+<li>change the value after 'template='  to the desired template filename.</li>
+<li>Disable the REDCap Project header by adding <code>&amp;header=false</code>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Check the boxes for "Append record ID" and "Append project ID".</li>
+<li>Additional bookmarks can be used for different template filenames </li>
+</ul><h3>
+<a name="feedback" class="anchor" href="#feedback"><span class="octicon octicon-link"></span></a>Feedback</h3>
+
+<p>You are welcome to:</p>
+
+<ul>
+<li>submit suggestions and bug-reports at: <a href="https://github.com/rparrish/redcap_tbs/issues">https://github.com/rparrish/redcap_tbs/issues</a>
+</li>
+<li>compose a friendly email to: <a href="mailto:rollie.parrish@ampa.org">rollie.parrish@ampa.org</a>
+</li>
+</ul><h4>
+<a name="authorscontributors" class="anchor" href="#authorscontributors"><span class="octicon octicon-link"></span></a>Authors/Contributors</h4>
+
+<ul>
+<li>
+<strong>Author</strong>: Rollie Parrish (AMPA)</li>
+</ul>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/rparrish">rparrish</a></p>
