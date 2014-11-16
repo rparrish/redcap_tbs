@@ -1,7 +1,7 @@
 <?php
 
 
-require_once  '../../redcap_v5.6.0/Config/init_project.php';
+require_once  '../../redcap_v6.2.2/Config/init_project.php';
 
 
 //Required files
