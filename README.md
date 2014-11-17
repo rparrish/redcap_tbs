@@ -9,10 +9,8 @@ REDCap projects can have multiple reporting templates.
 
 ### Requirements
 * REDCap
-  * version 5.6+ (not tested on earlier versions)
+  * version 6.2.2+ (not tested on earlier versions)
   * Bookmarks enabled
-  * API enabled 
-  * A valid TOKEN for each project
 * [TinyButStrong](http://tinybutstrong.com)  3.8.2 - file included with plugin (licensed under LGPL)
 * Familiarity with editing HTML/CSS files
 
@@ -20,19 +18,14 @@ REDCap projects can have multiple reporting templates.
 ### Installation
 Download the .zip archive and extract the redcap_tbs folder into the REDCap plugins folder (redcap/plugins/redcap_tbs/)
 
-### Configuration
-Each project requires its own subfolder in `redcap_tbs/pid/##`, where `##` equals the REDCap project ID number. This folder must contain the HTML template files and a config.ini file with a valid REDCap token.
 
-1. Make a copy the `/pid/example/` folder and rename it with the number of the project ID.
-2. Update the new folder's `config.ini` file with a valid TOKEN for the project.
+#### 1. Template Files
 
-#### 1. Template Filess
-
-Template files must contain valid HTML/CSS. Variables can be inserted with this tag format `[onshow.data.foo]` where 'foo' is a REDCap Project field name. 
+The template subfolder contains the template files, which must be valid HTML/CSS files. Variables can be inserted with this tag format `[onshow.data.foo]` where 'foo' is a REDCap Project field name. 
 
 * Basic usage - `<P>Hello [onshow.data.name]</P> ` ==> `Hello Peter`  
 * Reformatting dates - `<P>Date: [onshow.data.date; frm='m/d/yy']</P> ` ==> `Date:  9/1/13`  
-* Dynamic images - ``<IMG SRC="./pid/16/[onshow.data.cardiology]-small.png?raw"</IMG>'`` ==> An image name can be based on the value of a REDCap field. The image files can be located in the same `pid/sub-folder` as the template or from another location. 
+* Dynamic images - ``<IMG SRC="./[onshow.data.cardiology]-small.png?raw"</IMG>'`` ==> An image name can be based on the value of a REDCap field. The image files can be located in the same folder as the template. 
 
 Additional information can be found on the [http://tinybutstrong.com/examples.php](TinyButStrong Examples) page and in the TinyButStrong [http://tinybutstrong.com/manual.php](Documentaion Manual).
 
@@ -49,7 +42,7 @@ Add a new Project Bookmark.
 		* Disable the REDCap Project header by adding `&header=false`
 * Check the boxes for "Append record ID" and "Append project ID".
 * Additional bookmarks can be used for different template filenames 
-
+* Templates may be used across REDCap projects.
 
 
 ### Feedback
