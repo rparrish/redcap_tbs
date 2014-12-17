@@ -16,7 +16,7 @@ require_once ('includes/common.php');
 // The only way to get this page to load is via the 
 // Advanced Bookmark in REDCap
 
-if (!CheckAccess()) { echo "Access Denied. "; exit;}  
+if (!CheckAccess()) { echo "Access Denied. Must use the Advanced Bookmark feature in REDCap"; exit;}  
 // Needs to show the standard REDCap "access denied"
 
 
