@@ -12,11 +12,6 @@
 require_once ('includes/common.php');
 
 
-//// check for 'header=false' flag
-if ($_GET['header'] != 'false') {
-require_once APP_PATH_DOCROOT . 'ProjectGeneral/header.php';
-}
-
 //// confirm authentication with REDCap API
 // The only way to get this page to load is via the 
 // Advanced Bookmark in REDCap
@@ -39,16 +34,42 @@ exit();
 //// Using REDCap::getData method */
 require_once ("includes/REDCap_method.php");
 
-include_once('includes/tbs_class.php');
-//include_once('includes/tbs_plugin_opentbs.php');
-// future use - for templates in Open Document format (ie. .docx, .ppt, etc.)
 
 
-$TBS = new clsTinyButStrong;
-//$TBS->Plugin(TBS_INSTALL, OPENTBS_PLUGIN);
-// future use - for templates in Open Document format
+// load OPENTBS if template is not HTML file
+$extension = end(explode(".", $_GET['template']));
 
-$TBS->LoadTemplate(dirname(__FILE__) . '/templates/'.$_GET['template']);
-$TBS->Show();
+		
+switch ($extension) {
+	case "html":
+		//// check for 'header=false' flag
+		if ($_GET['header'] != 'false') {
+		require_once APP_PATH_DOCROOT . 'ProjectGeneral/header.php';
+		}
+
+		include_once('includes/tbs_class.php');
+		$TBS = new clsTinyButStrong;
+		$TBS->LoadTemplate(dirname(__FILE__) . 
+			'/templates/'.$_GET['template']);
+		$TBS->Show();
+ 		break;
+	default: 
+		include_once('includes/tbs_class.php');
+		include_once('includes/tbs_plugin_opentbs.php');
+		$TBS = new clsTinyButStrong;
+		$TBS->Plugin(TBS_INSTALL, OPENTBS_PLUGIN);
+		$TBS->LoadTemplate(dirname(__FILE__) . 
+			'/templates/'.$_GET['template']);
+		//$TBS->PlugIn(OPENTBS_DEBUG_XML_SHOW);
+		$TBS->Show(OPENTBS_DOWNLOAD, "output.docx");
+		break;
+ 
+}
+
+// check to see that template file exists
+
+
+//if (file_exists($_GET['template'])) {	
+
 ?>
 
