@@ -11,15 +11,6 @@
 //// load the required classes and configuration options 
 require_once ('includes/common.php');
 
-
-//// confirm authentication with REDCap API
-// The only way to get this page to load is via the 
-// Advanced Bookmark in REDCap
-
-if (!CheckAccess()) { echo "Access Denied. Must use the Advanced Bookmark feature in REDCap"; exit;}  
-// Needs to show the standard REDCap "access denied"
-
-
 //// show the search pulldown if a record wasn't specified
 if (!isset($_GET['record'])) {
 
@@ -30,6 +21,12 @@ renderSearchUtility();
 exit();
 
 }
+
+//// confirm authentication with REDCap API
+// The only way to get this page to load is via the 
+// Advanced Bookmark in REDCap
+
+if(isset($_POST['authkey'])) {
 
 //// Using REDCap::getData method */
 require_once ("includes/REDCap_method.php");
@@ -65,6 +62,8 @@ switch ($extension) {
 		break;
  
 }
+
+} else print "Access Denied"; 
 
 // check to see that template file exists
 
