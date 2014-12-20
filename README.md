@@ -11,7 +11,7 @@ REDCap projects can have multiple reporting templates.
 * REDCap
   * version 6.2.2+ (not tested on earlier versions)
   * Bookmarks enabled
-* [TinyButStrong](http://tinybutstrong.com)  3.8.2 - file included with plugin (licensed under LGPL)
+* [TinyButStrong](http://tinybutstrong.com)  3.9 - file included with plugin (licensed under LGPL)
 * Familiarity with editing HTML/CSS files
 
 
