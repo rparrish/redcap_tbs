@@ -1,35 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Redcap tbs by rparrish</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <title>REDCap TBS by rparrish</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Redcap tbs</h1>
-        <p>This REDCap plugin displays formatted reports for individual records using the Tiny But Strong PHP template engine.</p>
+    <div id="container">
+      <div class="inner">
 
-        <p class="view"><a href="https://github.com/rparrish/redcap_tbs">View the Project on GitHub <small>rparrish/redcap_tbs</small></a></p>
+        <header>
+          <h1>REDCap TBS</h1>
+          <h2>This REDCap plugin displays formatted reports for individual records using the Tiny But Strong PHP template engine.</h2>
+        </header>
 
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/rparrish/redcap_tbs/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/rparrish/redcap_tbs/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/rparrish/redcap_tbs" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
 
-        <ul>
-          <li><a href="https://github.com/rparrish/redcap_tbs/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/rparrish/redcap_tbs/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/rparrish/redcap_tbs">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>
-<a name="redcap-tbs" class="anchor" href="#redcap-tbs"><span class="octicon octicon-link"></span></a>REDCap TBS</h1>
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a id="redcap-tbs" class="anchor" href="#redcap-tbs" aria-hidden="true"><span class="octicon octicon-link"></span></a>REDCap TBS</h1>
 
 <p>This REDCap plugin generates formatted reports for individual REDCap records using the Tiny But Strong PHP template engine. Template files are written in HTML/CSS for layout and formatting. </p>
 
@@ -38,7 +41,7 @@
 <p>REDCap projects can have multiple reporting templates.</p>
 
 <h3>
-<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h3>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h3>
 
 <ul>
 <li>REDCap
@@ -53,21 +56,25 @@
 <li>
 <a href="http://tinybutstrong.com">TinyButStrong</a>  3.8.2 - file included with plugin (licensed under LGPL)</li>
 <li>Familiarity with editing HTML/CSS files</li>
-</ul><h3>
-<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h3>
+</ul>
+
+<h3>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h3>
 
 <p>Download the .zip archive and extract the redcap_tbs folder into the REDCap plugins folder (redcap/plugins/redcap_tbs/)</p>
 
 <h3>
-<a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Configuration</h3>
+<a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration</h3>
 
 <p>Each project requires its own subfolder in <code>redcap_tbs/pid/##</code>, where <code>##</code> equals the REDCap project ID number. This folder must contain the HTML template files and a config.ini file with a valid REDCap token.</p>
 
 <ol>
 <li>Make a copy the <code>/pid/example/</code> folder and rename it with the number of the project ID.</li>
 <li>Update the new folder's <code>config.ini</code> file with a valid TOKEN for the project.</li>
-</ol><h4>
-<a name="1-template-filess" class="anchor" href="#1-template-filess"><span class="octicon octicon-link"></span></a>1. Template Filess</h4>
+</ol>
+
+<h4>
+<a id="1-template-filess" class="anchor" href="#1-template-filess" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Template Filess</h4>
 
 <p>Template files must contain valid HTML/CSS. Variables can be inserted with this tag format <code>[onshow.data.foo]</code> where 'foo' is a REDCap Project field name. </p>
 
@@ -77,10 +84,12 @@
 <li>Reformatting dates - <code>&lt;P&gt;Date: [onshow.data.date; frm='m/d/yy']&lt;/P&gt;</code> ==&gt; <code>Date:  9/1/13</code><br>
 </li>
 <li>Dynamic images - <code>&lt;IMG SRC="./pid/16/[onshow.data.cardiology]-small.png?raw"&lt;/IMG&gt;'</code> ==&gt; An image name can be based on the value of a REDCap field. The image files can be located in the same <code>pid/sub-folder</code> as the template or from another location. </li>
-</ul><p>Additional information can be found on the <a href="TinyButStrong%20Examples">http://tinybutstrong.com/examples.php</a> page and in the TinyButStrong <a href="Documentaion%20Manual">http://tinybutstrong.com/manual.php</a>.</p>
+</ul>
+
+<p>Additional information can be found on the <a href="TinyButStrong%20Examples">http://tinybutstrong.com/examples.php</a> page and in the TinyButStrong <a href="Documentaion%20Manual">http://tinybutstrong.com/manual.php</a>.</p>
 
 <h4>
-<a name="2-bookmarks" class="anchor" href="#2-bookmarks"><span class="octicon octicon-link"></span></a>2. Bookmarks</h4>
+<a id="2-bookmarks" class="anchor" href="#2-bookmarks" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Bookmarks</h4>
 
 <p>Add a new Project Bookmark.  </p>
 
@@ -103,8 +112,10 @@
 </li>
 <li>Check the boxes for "Append record ID" and "Append project ID".</li>
 <li>Additional bookmarks can be used for different template filenames </li>
-</ul><h3>
-<a name="feedback" class="anchor" href="#feedback"><span class="octicon octicon-link"></span></a>Feedback</h3>
+</ul>
+
+<h3>
+<a id="feedback" class="anchor" href="#feedback" aria-hidden="true"><span class="octicon octicon-link"></span></a>Feedback</h3>
 
 <p>You are welcome to:</p>
 
@@ -113,20 +124,24 @@
 </li>
 <li>compose a friendly email to: <a href="mailto:rollie.parrish@ampa.org">rollie.parrish@ampa.org</a>
 </li>
-</ul><h4>
-<a name="authorscontributors" class="anchor" href="#authorscontributors"><span class="octicon octicon-link"></span></a>Authors/Contributors</h4>
+</ul>
+
+<h4>
+<a id="authorscontributors" class="anchor" href="#authorscontributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors/Contributors</h4>
 
 <ul>
 <li>
 <strong>Author</strong>: Rollie Parrish (AMPA)</li>
 </ul>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/rparrish">rparrish</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+        </section>
+
+        <footer>
+          REDCap TBS is maintained by <a href="https://github.com/rparrish">rparrish</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
   </body>
 </html>
