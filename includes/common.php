@@ -10,5 +10,3 @@ require_once  APP_PATH_DOCROOT . '/Config/init_project.php';
 require_once APP_PATH_DOCROOT . '/ProjectGeneral/form_renderer_functions.php';
 
 ?>
-
-
