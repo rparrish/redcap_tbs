@@ -32,7 +32,6 @@ if(isset($_POST['authkey'])) {
 require_once ("includes/REDCap_method.php");
 
 
-
 // load OPENTBS if template is not HTML file
 $extension = end(explode(".", $_GET['template']));
 
@@ -57,7 +56,14 @@ switch ($extension) {
 		$TBS->Plugin(TBS_INSTALL, OPENTBS_PLUGIN);
 		$TBS->LoadTemplate(dirname(__FILE__) . 
 			'/templates/'.$_GET['template']);
-		//$TBS->PlugIn(OPENTBS_DEBUG_XML_SHOW);
+
+		/* Debugging
+		  print "<PRE>";
+		  print_r($data);
+		  print "</PRE>";
+		  $TBS->PlugIn(OPENTBS_DEBUG_XML_SHOW);
+		// end debugging */
+	
 		$TBS->Show(OPENTBS_DOWNLOAD, "output.docx");
 		break;
  
