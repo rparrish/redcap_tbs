@@ -38,7 +38,10 @@ $extension = end(explode(".", $_GET['template']));
 		
 switch ($extension) {
 	case "html":
-		//// check for 'header=false' flag
+		// Log the Event
+ 		redcap_tbs_log(); 
+		
+		// check for 'header=false' flag
 		if ($_GET['header'] != 'false') {
 		require_once APP_PATH_DOCROOT . 'ProjectGeneral/header.php';
 		}
@@ -48,10 +51,14 @@ switch ($extension) {
 		$TBS->LoadTemplate(dirname(__FILE__) . 
 			'/templates/'.$_GET['template']);
 		$TBS->Show();
- 		break;
+		break;
 	default: 
+		// Log the Event
+ 		redcap_tbs_log(); 
+
 		include_once('includes/tbs_class.php');
 		include_once('includes/tbs_plugin_opentbs.php');
+		
 		$TBS = new clsTinyButStrong;
 		$TBS->Plugin(TBS_INSTALL, OPENTBS_PLUGIN);
 		$TBS->LoadTemplate(dirname(__FILE__) . 
@@ -77,4 +84,3 @@ switch ($extension) {
 //if (file_exists($_GET['template'])) {	
 
 ?>
-
