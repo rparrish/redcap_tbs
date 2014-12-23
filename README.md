@@ -1,17 +1,17 @@
 REDCap TBS
 ==========
-This REDCap plugin generates formatted reports for individual REDCap records using the Tiny But Strong PHP template engine. Template files can be written as HTML/CSS for layout and formatting. Word (.docx) template files can also be used.
+The REDCap TBS plugin generates formatted reports for individual REDCap records using the Tiny But Strong PHP template engine. Template files can be written as HTML/CSS for layout and formatting. Word (.docx) template files can also be used.
 
 __How it works:__ The template file includes placeholder tags for REDCap field names. The TBS template engine replaces these tags with the actual values from REDCap for the specific record.
  
-REDCap projects can have multiple reporting templates.
-
+__How it's used:__ REDCap TBS can be used to generated form letters with dynamic content based on REDCap variables. It can also be used to print the content of REDCap data collection instruments in a more concise format than the default PDF feature.
 
 ### Requirements
 * REDCap
-  * version 6.2.2+ (not tested on earlier versions)
+  * version 6.2.2+ (not fully tested on earlier versions)
   * Bookmarks enabled
 * [TinyButStrong](http://tinybutstrong.com)  3.9 - file included with plugin (licensed under LGPL)
+# [OpenTBS](http://www.tinybutstrong.com/plugins/opentbs/tbs_plugin_opentbs.html) 1.9.2 - creates Open Office and MS Office documents
 * Familiarity with editing HTML/CSS files
 
 
