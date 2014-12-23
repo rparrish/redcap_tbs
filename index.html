@@ -34,11 +34,11 @@
           <h1>
 <a id="redcap-tbs" class="anchor" href="#redcap-tbs" aria-hidden="true"><span class="octicon octicon-link"></span></a>REDCap TBS</h1>
 
-<p>This REDCap plugin generates formatted reports for individual REDCap records using the Tiny But Strong PHP template engine. Template files are written in HTML/CSS for layout and formatting. </p>
+<p>The REDCap TBS plugin generates formatted reports for individual REDCap records using the Tiny But Strong PHP template engine. Template files can be written as HTML/CSS for layout and formatting. Word (.docx) template files can also be used.</p>
 
 <p><strong>How it works:</strong> The template file includes placeholder tags for REDCap field names. The TBS template engine replaces these tags with the actual values from REDCap for the specific record.</p>
 
-<p>REDCap projects can have multiple reporting templates.</p>
+<p><strong>How it's used:</strong> REDCap TBS can be used to generated form letters with dynamic content based on REDCap variables. It can also be used to print the content of REDCap data collection instruments in a more concise format than the default PDF feature.</p>
 
 <h3>
 <a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h3>
@@ -47,14 +47,14 @@
 <li>REDCap
 
 <ul>
-<li>version 5.6+ (not tested on earlier versions)</li>
+<li>version 6.2.2+ (not fully tested on earlier versions)</li>
 <li>Bookmarks enabled</li>
-<li>API enabled </li>
-<li>A valid TOKEN for each project</li>
 </ul>
 </li>
 <li>
-<a href="http://tinybutstrong.com">TinyButStrong</a>  3.8.2 - file included with plugin (licensed under LGPL)</li>
+<a href="http://tinybutstrong.com">TinyButStrong</a>  3.9 - file included with plugin (licensed under LGPL)</li>
+<li>
+<a href="http://www.tinybutstrong.com/plugins/opentbs/tbs_plugin_opentbs.html">OpenTBS</a> 1.9.2 - creates Open Office and MS Office documents. File included with plugin (licensed under LGPL)</li>
 <li>Familiarity with editing HTML/CSS files</li>
 </ul>
 
@@ -64,39 +64,34 @@
 <p>Download the .zip archive and extract the redcap_tbs folder into the REDCap plugins folder (redcap/plugins/redcap_tbs/)</p>
 
 <h3>
-<a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration</h3>
+<a id="initial-testing" class="anchor" href="#initial-testing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Initial Testing</h3>
 
-<p>Each project requires its own subfolder in <code>redcap_tbs/pid/##</code>, where <code>##</code> equals the REDCap project ID number. This folder must contain the HTML template files and a config.ini file with a valid REDCap token.</p>
-
-<ol>
-<li>Make a copy the <code>/pid/example/</code> folder and rename it with the number of the project ID.</li>
-<li>Update the new folder's <code>config.ini</code> file with a valid TOKEN for the project.</li>
-</ol>
+<p>The .docx templates depend on the OpenTBS plugin for TinyButStrong. Confirm that the installation is configured correctly by opening <code>https://YOUR_SERVER/redcap/plugins/redcap_tbs/demo/index.php</code>. Follow the prompts and use the OpenTBS documentation/support forums for further troubleshooting if necessary. </p>
 
 <h4>
-<a id="1-template-filess" class="anchor" href="#1-template-filess" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Template Filess</h4>
+<a id="1-add-the-template-files" class="anchor" href="#1-add-the-template-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Add the Template Files</h4>
 
-<p>Template files must contain valid HTML/CSS. Variables can be inserted with this tag format <code>[onshow.data.foo]</code> where 'foo' is a REDCap Project field name. </p>
+<p>The template subfolder contains the template files. Template files must contain valid HTML/CSS  or be a valid .docx file. Additional subfolders can be used to organize templates by project. </p>
+
+<p>REDCap variables are inserted into the template content with this tag format <code>[onshow.data.foo]</code> where 'foo' is a REDCap Project field name. </p>
 
 <ul>
 <li>Basic usage - <code>&lt;P&gt;Hello [onshow.data.name]&lt;/P&gt;</code> ==&gt; <code>Hello Peter</code><br>
 </li>
 <li>Reformatting dates - <code>&lt;P&gt;Date: [onshow.data.date; frm='m/d/yy']&lt;/P&gt;</code> ==&gt; <code>Date:  9/1/13</code><br>
 </li>
-<li>Dynamic images - <code>&lt;IMG SRC="./pid/16/[onshow.data.cardiology]-small.png?raw"&lt;/IMG&gt;'</code> ==&gt; An image name can be based on the value of a REDCap field. The image files can be located in the same <code>pid/sub-folder</code> as the template or from another location. </li>
+<li>Dynamic images (HTML) - <code>&lt;IMG SRC="./[onshow.data.cardiology]-small.png?raw"&lt;/IMG&gt;'</code> ==&gt; An image name can be based on the value of a REDCap field. The image files can be located in the same folder as the template. </li>
 </ul>
 
 <p>Additional information can be found on the <a href="TinyButStrong%20Examples">http://tinybutstrong.com/examples.php</a> page and in the TinyButStrong <a href="Documentaion%20Manual">http://tinybutstrong.com/manual.php</a>.</p>
 
 <h4>
-<a id="2-bookmarks" class="anchor" href="#2-bookmarks" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Bookmarks</h4>
-
-<p>Add a new Project Bookmark.  </p>
+<a id="2-add-a-new-project-bookmark" class="anchor" href="#2-add-a-new-project-bookmark" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Add a new Project Bookmark.</h4>
 
 <ul>
 <li>Link Type - Select Advanced Link. This verifies the identity of the user.</li>
 <li>User Access - Selecting 'All users' will give access to any user that has access to this project. The 'Selected Users' option can be used to restrict the link to specific users. </li>
-<li>Link URL - <code>https://redcap.EXAMPLE.ORG/redcap/plugins/redcap_tbs/index.php?template=form.html</code>
+<li>Link URL - <code>https://YOUR_SERVER/redcap/plugins/redcap_tbs/index.php?template=example.html</code>
 
 <ul>
 <li>change 'EXAMPLE.ORG' to the domain name of the REDCap installation.</li>
@@ -106,12 +101,13 @@
 <li>change the value after 'template='  to the desired template filename.</li>
 <li>Disable the REDCap Project header by adding <code>&amp;header=false</code>
 </li>
+<li>Template subfolders can be accessed by adding the folder names to the template parameter (ie. <code>?template=fruit/demo.docx</code>
+</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>Check the boxes for "Append record ID" and "Append project ID".</li>
-<li>Additional bookmarks can be used for different template filenames </li>
 </ul>
 
 <h3>
