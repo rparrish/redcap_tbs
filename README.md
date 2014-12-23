@@ -18,6 +18,9 @@ REDCap projects can have multiple reporting templates.
 ### Installation
 Download the .zip archive and extract the redcap_tbs folder into the REDCap plugins folder (redcap/plugins/redcap_tbs/)
 
+### Initial Testing
+
+The .docx templates depend on the OpenTBS plugin for TinyButStrong. Confirm that the installation is configured correctly by opening 'https://YOUR_SERVER/redcap/plugins/redcap_tbs/demo/index.php'. Follow the prompts and use the OpenTBS documentation/support forums for further troubleshooting if necessary. 
 
 #### 1. Add the Template Files
 
