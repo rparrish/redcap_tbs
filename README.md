@@ -20,7 +20,7 @@ Download the .zip archive and extract the redcap_tbs folder into the REDCap plug
 
 ### Initial Testing
 
-The .docx templates depend on the OpenTBS plugin for TinyButStrong. Confirm that the installation is configured correctly by opening 'https://YOUR_SERVER/redcap/plugins/redcap_tbs/demo/index.php'. Follow the prompts and use the OpenTBS documentation/support forums for further troubleshooting if necessary. 
+The .docx templates depend on the OpenTBS plugin for TinyButStrong. Confirm that the installation is configured correctly by opening `https://YOUR_SERVER/redcap/plugins/redcap_tbs/demo/index.php`. Follow the prompts and use the OpenTBS documentation/support forums for further troubleshooting if necessary. 
 
 #### 1. Add the Template Files
 
@@ -39,7 +39,7 @@ Additional information can be found on the [http://tinybutstrong.com/examples.ph
 
 * Link Type - Select Advanced Link. This verifies the identity of the user.
 * User Access - Selecting 'All users' will give access to any user that has access to this project. The 'Selected Users' option can be used to restrict the link to specific users. 
-* Link URL - `https://redcap.EXAMPLE.ORG/redcap/plugins/redcap_tbs/index.php?template=example.html`
+* Link URL - `https://YOUR_SERVER/redcap/plugins/redcap_tbs/index.php?template=example.html`
 	* change 'EXAMPLE.ORG' to the domain name of the REDCap installation.
 	* OPTIONS:
 		* change the value after 'template='  to the desired template filename.
