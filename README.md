@@ -11,7 +11,7 @@ __How it's used:__ REDCap TBS can be used to generated form letters with dynamic
   * version 6.2.2+ (not fully tested on earlier versions)
   * Bookmarks enabled
 * [TinyButStrong](http://tinybutstrong.com)  3.9 - file included with plugin (licensed under LGPL)
-* [OpenTBS](http://www.tinybutstrong.com/plugins/opentbs/tbs_plugin_opentbs.html) 1.9.2 - creates Open Office and MS Office documents
+* [OpenTBS](http://www.tinybutstrong.com/plugins/opentbs/tbs_plugin_opentbs.html) 1.9.2 - creates Open Office and MS Office documents. File included with plugin (licensed under LGPL)
 * Familiarity with editing HTML/CSS files
 
 
