@@ -31,6 +31,9 @@ REDCap variables are inserted into the template content with this tag format `[o
 * Basic usage - `<P>Hello [onshow.data.name]</P> ` ==> `Hello Peter`  
 * Reformatting dates - `<P>Date: [onshow.data.date; frm='m/d/yy']</P> ` ==> `Date:  9/1/13`  
 * Dynamic images (HTML) - ``<IMG SRC="./[onshow.data.cardiology]-small.png?raw"</IMG>'`` ==> An image name can be based on the value of a REDCap field. The image files can be located in the same folder as the template. 
+* Checkbox Fields - 
+
+
 
 Additional information can be found on the [http://tinybutstrong.com/examples.php](TinyButStrong Examples) page and in the TinyButStrong [http://tinybutstrong.com/manual.php](Documentaion Manual).
 
