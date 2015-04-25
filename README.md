@@ -31,9 +31,43 @@ REDCap variables are inserted into the template content with this tag format `[o
 * Basic usage - `<P>Hello [onshow.data.name]</P> ` ==> `Hello Peter`  
 * Reformatting dates - `<P>Date: [onshow.data.date; frm='m/d/yy']</P> ` ==> `Date:  9/1/13`  
 * Dynamic images (HTML) - ``<IMG SRC="./[onshow.data.cardiology]-small.png?raw"</IMG>'`` ==> An image name can be based on the value of a REDCap field. The image files can be located in the same folder as the template. 
-* Checkbox Fields - 
+* Checkbox Fields - There are two ways to show checkbox fields - display literal checkmarks or show the values of the selected options. 
+
+This example uses a REDCap checkbox field-type named 'checkboxes' with three options (as shown below) and a record where the first and third option have been selected.
+
+```
+1, Check #1
+2, Check #2
+A, Check A
+```
+
+  __Show Checkmarks__ - Displays a checked box character next to the selected option and an empty box next to unselected options.  
+
+This TBS code block in HTML
+```html
+    [onload.data.checkboxes___1;if [val]='Checked';then '&#9745';else '&#9744'] Check #1<BR>
+    [onload.data.checkboxes___2;if [val]='Checked';then '&#9745';else '&#9744'] Check #2<BR>
+    [onload.data.checkboxes___a;if [val]='Checked';then '&#9745';else '&#9744'] Check A<BR>
+```
+
+Will show something like this:
+
+&#9745; Check #1  
+&#9744; Check #2  
+&#9745; Check A  
 
 
+  __Show Values__ - Displays the values when options are selected. 
+This TBS code block in HTML
+```html
+    [onload.data.checkboxes___1;if [val]='Checked';then 'Check #1';else '']
+    [onload.data.checkboxes___2;if [val]='Checked';then 'Check #2';else '']
+    [onload.data.checkboxes___a;if [val]='Checked';then 'Check A';else ''] Check A<BR>
+```
+
+Will show something like this:
+
+Check #1, Check A 
 
 Additional information can be found on the [http://tinybutstrong.com/examples.php](TinyButStrong Examples) page and in the TinyButStrong [http://tinybutstrong.com/manual.php](Documentaion Manual).
 
