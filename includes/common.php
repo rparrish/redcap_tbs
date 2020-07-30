@@ -7,7 +7,7 @@ require_once "../../redcap_connect.php";
 require_once  APP_PATH_DOCROOT . '/Config/init_project.php';
 
 //Required files
-require_once APP_PATH_DOCROOT . '/ProjectGeneral/form_renderer_functions.php';
+//require_once APP_PATH_DOCROOT . '/ProjectGeneral/form_renderer_functions.php';
 
 // Log the event in REDCap
 
