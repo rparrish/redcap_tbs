@@ -12,13 +12,14 @@
 require_once ('includes/common.php');
 
 //// show the search pulldown if a record wasn't specified
-if (!isset($_GET['record'])) {
+// removing this search form section - no longer available with REDCap 10.x+
+//if (!isset($_GET['record'])) {
 
-require_once APP_PATH_DOCROOT . 'ProjectGeneral/header.php';
-echo '<h3 style="color:#800000;">Please select a record</h3>';
-renderSearchUtility();
+//require_once APP_PATH_DOCROOT . 'ProjectGeneral/header.php';
+//echo '<h3 style="color:#800000;">Please select a record</h3>';
+//renderSearchUtility();
 
-exit();
+//exit();
 
 }
 
