@@ -21,7 +21,7 @@ require_once ('includes/common.php');
 
 //exit();
 
-}
+// }
 
 //// confirm authentication with REDCap API
 // The only way to get this page to load is via the 
