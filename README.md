@@ -93,3 +93,4 @@ You are welcome to:
 
 #### Authors/Contributors
 * __Author__: Rollie Parrish (AMPA)
+* __Contributor: [@RHeib](https://github.com/RHeimb)
